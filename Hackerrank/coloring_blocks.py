@@ -3,15 +3,14 @@
  input e.g. [[1,2,3][1,2,3][3,3,1]]
  '''
 
-def minPrice(cost):
-    if(costs==null||costs.length==0)
+def minCost(costs):
+    if(costs==None or len(costs)==0):
         return 0;
  
-    for(int i=1; i<costs.length; i++){
-        costs[i][0] += Math.min(costs[i-1][1], costs[i-1][2]);
-        costs[i][1] += Math.min(costs[i-1][0], costs[i-1][2]);
-        costs[i][2] += Math.min(costs[i-1][0], costs[i-1][1]);
-    }
+    for i in range(1, len(costs)):
+        costs[i][0] += min(costs[i-1][1], costs[i-1][2])
+        costs[i][1] += min(costs[i-1][0], costs[i-1][2])
+        costs[i][2] += min(costs[i-1][0], costs[i-1][1])
  
-    int m = costs.length-1;
-    return Math.min(Math.min(costs[m][0], costs[m][1]), costs[m][2]);
+    m = costs.length-1
+    return min(min(costs[m][0], costs[m][1]), costs[m][2])
